@@ -1,2 +1,3 @@
-# kasi-wallet-website
-The digital wallet for our kasi 
+# React + TypeScript + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

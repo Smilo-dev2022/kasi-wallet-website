@@ -1,136 +1,183 @@
 import React, { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from '@/components/ui/select';
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
+import { CheckCircle, AlertCircle } from 'lucide-react';
 
 const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    phoneNumber: '',
-    email: '',
-    userType: '',
-    message: '',
-    consent: false
-  });
-  const { toast } = useToast();
+	const [consent, setConsent] = useState(false);
+	const [state, handleSubmit] = useForm('mldnlowg');
+	const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.consent) {
-      toast({
-        title: "Consent Required",
-        description: "Please agree to receive communication from Kasi Wallet.",
-        variant: "destructive"
-      });
-      return;
-    }
-    
-    // Simulate form submission
-    toast({
-      title: "Form Submitted!",
-      description: "Thank you for your interest. We'll be in touch soon."
-    });
-    
-    // Reset form
-    setFormData({
-      fullName: '',
-      phoneNumber: '',
-      email: '',
-      userType: '',
-      message: '',
-      consent: false
-    });
-  };
+	const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
 
-  return (
-    <Card className="w-full max-w-2xl mx-auto">
-      <CardHeader>
-        <CardTitle className="text-2xl text-center text-gray-800">
-          Get in Touch or Join Our Waitlist
-        </CardTitle>
-        <CardDescription className="text-center">
-          We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <Label htmlFor="fullName">Full Name *</Label>
-            <Input
-              id="fullName"
-              value={formData.fullName}
-              onChange={(e) => setFormData({...formData, fullName: e.target.value})}
-              required
-            />
-          </div>
-          
-          <div>
-            <Label htmlFor="phoneNumber">Phone Number *</Label>
-            <Input
-              id="phoneNumber"
-              value={formData.phoneNumber}
-              onChange={(e) => setFormData({...formData, phoneNumber: e.target.value})}
-              required
-            />
-          </div>
-          
-          <div>
-            <Label htmlFor="email">Email Address (optional)</Label>
-            <Input
-              id="email"
-              type="email"
-              value={formData.email}
-              onChange={(e) => setFormData({...formData, email: e.target.value})}
-            />
-          </div>
-          
-          <div>
-            <Label>I am a:</Label>
-            <Select value={formData.userType} onValueChange={(value) => setFormData({...formData, userType: value})}>
-              <SelectTrigger>
-                <SelectValue placeholder="Select one" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="customer">Customer</SelectItem>
-                <SelectItem value="merchant">Merchant</SelectItem>
-                <SelectItem value="agent">Agent</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          
-          <div>
-            <Label htmlFor="message">Message</Label>
-            <Textarea
-              id="message"
-              value={formData.message}
-              onChange={(e) => setFormData({...formData, message: e.target.value})}
-              rows={4}
-            />
-          </div>
-          
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              id="consent"
-              checked={formData.consent}
-              onCheckedChange={(checked) => setFormData({...formData, consent: checked as boolean})}
-            />
-            <Label htmlFor="consent" className="text-sm">
-              I agree to receive communication from Kasi Wallet.
-            </Label>
-          </div>
-          
-          <Button type="submit" className="w-full bg-orange-500 hover:bg-orange-600">
-            Submit
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
-  );
+		if (!consent) {
+			toast({
+				title: 'Consent Required',
+				description: 'Please agree to receive communication from Kasi Wallet.',
+				variant: 'destructive',
+			});
+			return;
+		}
+
+		// Call the Formspree handleSubmit
+		handleSubmit(e);
+	};
+
+	// Show success message
+	if (state.succeeded) {
+		return (
+			<Card className='w-full max-w-2xl mx-auto'>
+				<CardContent className='p-8 text-center'>
+					<CheckCircle className='h-16 w-16 text-green-500 mx-auto mb-4' />
+					<h3 className='text-2xl font-bold text-gray-800 mb-2'>Thank You!</h3>
+					<p className='text-gray-600'>
+						Your message has been sent successfully. We'll get back to you soon!
+					</p>
+				</CardContent>
+			</Card>
+		);
+	}
+
+	return (
+		<Card className='w-full max-w-2xl mx-auto'>
+			<CardHeader>
+				<CardTitle className='text-2xl text-center text-gray-800'>
+					Get in Touch or Join Our Waitlist
+				</CardTitle>
+				<CardDescription className='text-center'>
+					We'd love to hear from you. Send us a message and we'll respond as
+					soon as possible.
+				</CardDescription>
+			</CardHeader>
+			<CardContent>
+				<form onSubmit={onSubmit} className='space-y-4'>
+					<div>
+						<Label htmlFor='fullName'>Full Name *</Label>
+						<Input id='fullName' name='fullName' required />
+						<ValidationError
+							prefix='Full Name'
+							field='fullName'
+							errors={state.errors}
+							className='text-red-500 text-sm mt-1'
+						/>
+					</div>
+
+					<div>
+						<Label htmlFor='phoneNumber'>Phone Number *</Label>
+						<Input id='phoneNumber' name='phoneNumber' required />
+						<ValidationError
+							prefix='Phone Number'
+							field='phoneNumber'
+							errors={state.errors}
+							className='text-red-500 text-sm mt-1'
+						/>
+					</div>
+
+					<div>
+						<Label htmlFor='email'>Email Address (optional)</Label>
+						<Input id='email' type='email' name='email' />
+						<ValidationError
+							prefix='Email'
+							field='email'
+							errors={state.errors}
+							className='text-red-500 text-sm mt-1'
+						/>
+					</div>
+
+					<div>
+						<Label htmlFor='userType'>I am a:</Label>
+						<Select
+							name='userType'
+							onValueChange={(value) => {
+								// Set the value in a hidden input for Formspree
+								const hiddenInput = document.getElementById(
+									'userType',
+								) as HTMLInputElement;
+								if (hiddenInput) {
+									hiddenInput.value = value;
+								}
+							}}
+						>
+							<SelectTrigger>
+								<SelectValue placeholder='Select one' />
+							</SelectTrigger>
+							<SelectContent>
+								<SelectItem value='customer'>Customer</SelectItem>
+								<SelectItem value='merchant'>Merchant</SelectItem>
+								<SelectItem value='agent'>Agent</SelectItem>
+							</SelectContent>
+						</Select>
+						<input type='hidden' id='userType' name='userType' />
+						<ValidationError
+							prefix='User Type'
+							field='userType'
+							errors={state.errors}
+							className='text-red-500 text-sm mt-1'
+						/>
+					</div>
+
+					<div>
+						<Label htmlFor='message'>Message</Label>
+						<Textarea id='message' name='message' rows={4} />
+						<ValidationError
+							prefix='Message'
+							field='message'
+							errors={state.errors}
+							className='text-red-500 text-sm mt-1'
+						/>
+					</div>
+
+					<div className='flex items-center space-x-2'>
+						<Checkbox
+							id='consent'
+							checked={consent}
+							onCheckedChange={(checked) => setConsent(checked as boolean)}
+						/>
+						<Label htmlFor='consent' className='text-sm'>
+							I agree to receive communication from Kasi Wallet.
+						</Label>
+					</div>
+
+					{state.errors && Object.keys(state.errors).length > 0 && (
+						<div className='flex items-center space-x-2 p-3 bg-red-50 border border-red-200 rounded-md'>
+							<AlertCircle className='h-4 w-4 text-red-500' />
+							<span className='text-red-700 text-sm'>
+								Please fix the errors above and try again.
+							</span>
+						</div>
+					)}
+
+					<Button
+						type='submit'
+						className='w-full bg-orange-500 hover:bg-orange-600'
+						disabled={state.submitting}
+					>
+						{state.submitting ? 'Sending...' : 'Submit'}
+					</Button>
+				</form>
+			</CardContent>
+		</Card>
+	);
 };
 
 export default ContactForm;

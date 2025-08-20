@@ -60,6 +60,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
               src="/ikasi-wallet-logo.png" 
               alt="iKasi Wallet Logo" 
               className="w-10 h-10 object-contain"
+              onError={(e) => { (e.currentTarget as HTMLImageElement).src = '/ikasi-logo.svg'; }}
             />
             <span className="text-xl font-bold text-gray-800">iKasi Wallet</span>
           </div>

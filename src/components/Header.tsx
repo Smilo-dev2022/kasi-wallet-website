@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-3">
             <img 
-              src="/ikasi-logo.svg" 
+              src="/ikasi-wallet-logo.png" 
               alt="iKasi Wallet Logo" 
               className="w-10 h-10 object-contain"
             />

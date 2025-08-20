@@ -4,7 +4,7 @@ export const faqData = [
     questions: [
       {
         question: "How do I send money to someone?",
-        answer: "Open your Kasi Wallet app, enter the person's phone number or scan their QR code, enter the amount, and confirm."
+        answer: "Open your iKasi Wallet app, enter the person's phone number or scan their QR code, enter the amount, and confirm."
       },
       {
         question: "Can I receive money if I don't have the app?",
@@ -12,7 +12,7 @@ export const faqData = [
       },
       {
         question: "What are the fees?",
-        answer: "No monthly charges. Sending and receiving is free between Kasi Wallet users. Cash-out and cross-border transactions have small service fees."
+        answer: "No monthly charges. Sending and receiving is free between iKasi Wallet users. Cash-out and cross-border transactions have small service fees."
       }
     ]
   },
@@ -21,7 +21,7 @@ export const faqData = [
     questions: [
       {
         question: "Where can I withdraw cash?",
-        answer: "You can cash out at Kasi Wallet partner agents, participating spaza shops, or through our voucher system (coming soon)."
+        answer: "You can cash out at iKasi Wallet partner agents, participating spaza shops, or through our voucher system (coming soon)."
       },
       {
         question: "Can I send money to other countries?",
@@ -37,7 +37,7 @@ export const faqData = [
     category: "🛍️ For Businesses & Merchants",
     questions: [
       {
-        question: "Can I accept Kasi Wallet payments at my shop?",
+        question: "Can I accept iKasi Wallet payments at my shop?",
         answer: "Yes. You'll get a merchant QR code and can start accepting digital payments instantly."
       },
       {

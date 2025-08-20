@@ -33,7 +33,7 @@ const ContactForm: React.FC = () => {
 		if (!consent) {
 			toast({
 				title: 'Consent Required',
-				description: 'Please agree to receive communication from Kasi Wallet.',
+				description: 'Please agree to receive communication from iKasi Wallet.',
 				variant: 'destructive',
 			});
 			return;
@@ -154,7 +154,7 @@ const ContactForm: React.FC = () => {
 							onCheckedChange={(checked) => setConsent(checked as boolean)}
 						/>
 						<Label htmlFor='consent' className='text-sm'>
-							I agree to receive communication from Kasi Wallet.
+							I agree to receive communication from iKasi Wallet.
 						</Label>
 					</div>
 
@@ -181,3 +181,4 @@ const ContactForm: React.FC = () => {
 };
 
 export default ContactForm;
+

@@ -13,16 +13,16 @@ const FAQ: React.FC = () => {
       category: "💼 General",
       questions: [
         {
-          question: "What is Kasi Wallet?",
-          answer: "Kasi Wallet is a secure digital wallet made for South Africa's township and rural communities. It lets you send and receive money, pay at local shops, buy airtime, and make cash withdrawals — all from your phone."
+          question: "What is iKasi Wallet?",
+          answer: "iKasi Wallet is a secure digital wallet made for South Africa's township and rural communities. It lets you send and receive money, pay at local shops, buy airtime, and make cash withdrawals — all from your phone."
         },
         {
-          question: "Who can use Kasi Wallet?",
+          question: "Who can use iKasi Wallet?",
           answer: "Anyone with a South African phone number. You don't need a bank account — just your name, ID number, and phone to sign up."
         },
         {
-          question: "Is Kasi Wallet safe?",
-          answer: "Yes. Kasi Wallet uses advanced encryption, PIN security, and identity verification to protect your money."
+          question: "Is iKasi Wallet safe?",
+          answer: "Yes. iKasi Wallet uses advanced encryption, PIN security, and identity verification to protect your money."
         }
       ]
     },
@@ -30,8 +30,8 @@ const FAQ: React.FC = () => {
       category: "📲 Using the App",
       questions: [
         {
-          question: "Do I need a smartphone to use Kasi Wallet?",
-          answer: "No. Kasi Wallet works on smartphones (via app) and on feature phones through USSD or WhatsApp (selected features)."
+          question: "Do I need a smartphone to use iKasi Wallet?",
+          answer: "No. iKasi Wallet works on smartphones (via app) and on feature phones through USSD or WhatsApp (selected features)."
         },
         {
           question: "How do I sign up?",
@@ -54,7 +54,7 @@ const FAQ: React.FC = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-gray-600">
-            Find answers to common questions about Kasi Wallet
+            Find answers to common questions about iKasi Wallet
           </p>
         </div>
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { Menu } from 'lucide-react';
 import ComingSoonModal from './ComingSoonModal';
 import MerchantSignupModal from './MerchantSignupModal';
@@ -56,11 +57,11 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center space-x-3">
             <img 
-              src="https://d64gsuwffb70l.cloudfront.net/68503b675e10d3021a84fa89_1750182808839_7d567a04.png" 
-              alt="Kasi Wallet Logo" 
+              src="/ikasi-logo.svg" 
+              alt="iKasi Wallet Logo" 
               className="w-10 h-10 object-contain"
             />
-            <span className="text-xl font-bold text-gray-800">Kasi Wallet</span>
+            <span className="text-xl font-bold text-gray-800">iKasi Wallet</span>
           </div>
           
           <nav className="hidden md:flex space-x-6">
@@ -80,6 +81,9 @@ const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
           </nav>
           
           <div className="flex items-center space-x-4">
+            <Button asChild variant="link" className="hidden sm:inline-flex text-gray-700">
+              <Link to="/login">Login</Link>
+            </Button>
             <Button
               onClick={() => setShowComingSoon(true)}
               className="hidden sm:inline-flex bg-blue-600 hover:bg-blue-700"

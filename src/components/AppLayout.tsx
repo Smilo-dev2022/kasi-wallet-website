@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from './Header';
 import Hero from './Hero';
 import Features from './Features';
@@ -72,6 +73,13 @@ const AppLayout: React.FC = () => {
                 >
                   Become a Merchant
                 </button>
+                <Link
+                  to="/login"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block w-full text-left px-4 py-2 rounded text-gray-800 hover:text-orange-500"
+                >
+                  Login
+                </Link>
               </div>
             </nav>
           </div>

@@ -8,14 +8,14 @@ const HowItWorks: React.FC = () => {
   const [showMerchantModal, setShowMerchantModal] = useState(false);
 
   const handleContactSupport = () => {
-    window.open('https://wa.me/27600180011?text=Hi, I need help with Kasi Wallet', '_blank');
+    window.open('https://wa.me/27600180011?text=Hi, I need help with iKasi Wallet', '_blank');
   };
 
   const steps = [
     {
       icon: <Download className="h-12 w-12 text-orange-500" />,
       title: "Download the App",
-      description: "Get Kasi Wallet from Google Play or App Store",
+      description: "Get iKasi Wallet from Google Play or App Store",
       step: "01"
     },
     {
@@ -63,7 +63,7 @@ const HowItWorks: React.FC = () => {
             <h3 className="text-2xl font-bold text-gray-800 mb-6">For Businesses</h3>
             <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
               Join thousands of merchants already accepting digital payments. Get your QR code, 
-              start accepting payments, and grow your business with Kasi Wallet.
+              start accepting payments, and grow your business with iKasi Wallet.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 

@@ -15,7 +15,7 @@ const ComingSoonModal: React.FC<ComingSoonModalProps> = ({ isOpen, onClose }) =>
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2 text-orange-600">
             <Download className="h-6 w-6" />
-            Kasi Wallet App
+            iKasi Wallet App
           </DialogTitle>
           <DialogDescription className="text-center py-4">
             <div className="mb-4">
@@ -23,7 +23,7 @@ const ComingSoonModal: React.FC<ComingSoonModalProps> = ({ isOpen, onClose }) =>
             </div>
             <p className="text-lg font-semibold mb-2">Coming Soon!</p>
             <p className="text-gray-600">
-              We're putting the finishing touches on the Kasi Wallet app. 
+              We're putting the finishing touches on the iKasi Wallet app. 
               Join our waitlist to be notified when it's ready!
             </p>
           </DialogDescription>

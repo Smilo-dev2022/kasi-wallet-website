@@ -6,7 +6,7 @@ import ContactForm from './ContactForm';
 
 const Contact: React.FC = () => {
   const handleWhatsApp = () => {
-    window.open('https://wa.me/27600180011?text=Hi, I need help with Kasi Wallet', '_blank');
+    window.open('https://wa.me/27600180011?text=Hi, I need help with iKasi Wallet', '_blank');
   };
 
   const handleFacebook = () => {
@@ -29,7 +29,7 @@ const Contact: React.FC = () => {
             Get in Touch
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Have questions or need support? We're here to help you get started with Kasi Wallet.
+            Have questions or need support? We're here to help you get started with iKasi Wallet.
           </p>
         </div>
 

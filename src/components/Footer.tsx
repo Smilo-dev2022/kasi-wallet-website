@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-blue-600 rounded-lg"></div>
-              <span className="text-xl font-bold">Kasi Wallet</span>
+              <span className="text-xl font-bold">iKasi Wallet</span>
             </div>
             <p className="text-gray-400">
               Your township-first digital payment platform. Powered by Kasi Connect KC Trading.

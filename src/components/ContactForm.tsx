@@ -60,15 +60,6 @@ const ContactForm: React.FC = () => {
 
 	return (
 		<Card className='w-full max-w-2xl mx-auto'>
-			<CardHeader>
-				<CardTitle className='text-2xl text-center text-gray-800'>
-					Get in Touch or Join Our Waitlist
-				</CardTitle>
-				<CardDescription className='text-center'>
-					We'd love to hear from you. Send us a message and we'll respond as
-					soon as possible.
-				</CardDescription>
-			</CardHeader>
 			<CardContent>
 				<form onSubmit={onSubmit} className='space-y-4'>
 					<div>

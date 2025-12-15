@@ -32,11 +32,12 @@ export default function Waitlist() {
 
         {/* Contact Form */}
         <div className="w-full max-w-xl mx-auto mb-14 bg-white shadow-md rounded-2xl p-6 md:p-8">
-          <form className="space-y-5 text-left">
+          <form className="space-y-5 text-left" action="https://formspree.io/f/mldnlowg" method="post">
             <div className="relative">
               <User className="absolute left-3 top-3.5 text-black w-5 h-5" />
               <Input
                 type="text"
+                name="name"
                 placeholder="Your name"
                 className="pl-10 text-black"
                 required
@@ -46,6 +47,7 @@ export default function Waitlist() {
               <Mail className="absolute left-3 top-3.5 text-black w-5 h-5" />
               <Input
                 type="email"
+                name="email"
                 placeholder="Your email address"
                 className="pl-10 text-black"
                 required
